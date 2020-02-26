@@ -1,0 +1,26 @@
+
+
+.body {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  display: flex; justify-content: center;position: absolute; width: 100%; padding-top: 150px;
+}
+
+.title h1 {
+  font-size: 50px;
+}
+.cards {
+  padding-top: 50px;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  padding-top: 350px;
+
+}
+
+
+
