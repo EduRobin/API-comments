@@ -1,0 +1,38 @@
+<div class="blabla">
+  <nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/home" (click)="clickMe()">Logout</button>
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/user">User<span class="sr-only"></span></a>
+        </li>
+      </ul>
+
+
+
+    </form>
+  </nav>
+</div>
+
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let profil of users">
+      <td><a>{{profil.id}}</a></td>
+      <td><button (click)="clickProfile(profil.id)" class="button">{{profil.username}}</button></td>
+      <td><a>{{profil.email}}</a></td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

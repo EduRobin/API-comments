@@ -1,0 +1,41 @@
+<div class="blabla">
+  <nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/home" (click)="clickMe()">Logout</button>
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/user">User<span class="sr-only"></span></a>
+        </li>
+      </ul>
+
+    </form>
+  </nav>
+</div>
+
+<div class="body">
+
+  <div class="title">
+    <h1>You are logged in!</h1>
+  </div>
+
+  <div class="cards">
+
+
+    <div class="card mx-3" style="width: 18rem;">
+
+      <div class="card-body">
+        <h5 class="card-title">Logout</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button routerLink="/home" class="btn btn-outline-success my-2 my-sm-0" (click)="clickMe()">Logout</button>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+

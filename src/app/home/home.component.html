@@ -1,0 +1,41 @@
+<div class="blabla">
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">Login</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/register">Register</button>
+  </form>
+</nav>
+</div>
+
+<div class="body">
+
+  <div class="title">
+    <h1>Welcome to my web site!</h1>
+  </div>
+
+  <div class="cards">
+
+
+    <div class="card mx-3" style="width: 18rem;">
+
+      <div class="card-body">
+        <h5 class="card-title">Login</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button routerLink="/login" class="btn btn-outline-success my-2 my-sm-0">Login</button>
+      </div>
+    </div>
+    <div class="card mx-3" style="width: 18rem;">
+
+      <div class="card-body">
+        <h5 class="card-title">Register</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button routerLink="/register" class="btn btn-outline-success my-2 my-sm-0">Register</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>
