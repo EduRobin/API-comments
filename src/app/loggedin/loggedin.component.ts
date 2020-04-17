@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+localStorage.clear();import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {UserService} from '../services/user.service';

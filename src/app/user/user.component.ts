@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
   constructor(private httpClient: HttpClient, private router: Router, private user: UserService, private auth: AuthenticationService, private userlogout: AuthenticationService) {
     this.user.getUser().subscribe(
       (data: UserModel) => {
-        this.users = data['users']
+        this.users = data.users;
         this.pagecount = data.page_count + 1;
         console.log(this.users);
       }, (error) => {
@@ -46,15 +46,13 @@ export class UserComponent implements OnInit {
       AuthenticationService.token.access_token = (localStorage.getItem('token'));
 
       this.router.navigate(['/user']);
-    } else {
-      this.router.navigate(['/login']);
     }
   }
 
   clickPage(page: number) {
     this.user.getPage(page).subscribe(
       (data: UserModel) => {
-        this.users = data['users'];
+        this.users = data.users;
         this.pagecount = data.page_count + 1;
         console.log(this.users);
       }, (error) => {
