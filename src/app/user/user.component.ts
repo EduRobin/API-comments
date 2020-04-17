@@ -24,16 +24,17 @@ export class UserComponent implements OnInit {
 
   // tslint:disable-next-line:max-line-length
   constructor(private httpClient: HttpClient, private router: Router, private user: UserService, private auth: AuthenticationService, private userlogout: AuthenticationService) {
+  }
+  load() {
     this.user.getUser().subscribe(
       (data: UserModel) => {
-        this.users = data.users;
+        this.users = data['users'];
         this.pagecount = data.page_count + 1;
         console.log(this.users);
       }, (error) => {
 
       }
     );
-
   }
 
   clickProfile(id: number) {
@@ -47,12 +48,14 @@ export class UserComponent implements OnInit {
 
       this.router.navigate(['/user']);
     }
+
+    this.load();
   }
 
   clickPage(page: number) {
     this.user.getPage(page).subscribe(
       (data: UserModel) => {
-        this.users = data.users;
+        this.users = data['users'];
         this.pagecount = data.page_count + 1;
         console.log(this.users);
       }, (error) => {
