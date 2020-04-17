@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KomentComponent } from './koment.component';
+
+class KomentComponent {
+}
 
 describe('KomentComponent', () => {
   let component: KomentComponent;

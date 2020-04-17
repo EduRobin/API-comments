@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
-import AccessToken from '../AccessToken';
 import {UserService} from '../services/user.service';
 import {AuthenticationService} from '../services/authentication.service';
 import {UserModel} from '../models/User.model';
@@ -15,17 +14,20 @@ import {UserModel} from '../models/User.model';
 export class UserComponent implements OnInit {
 
   private email = '';
+  private pagecount: number;
   private id = '';
   private username = '';
   private users = [];
   private logoutURL = ' http://85.160.64.233:3000/user';
 
 
+
   // tslint:disable-next-line:max-line-length
   constructor(private httpClient: HttpClient, private router: Router, private user: UserService, private auth: AuthenticationService, private userlogout: AuthenticationService) {
     this.user.getUser().subscribe(
       (data: UserModel) => {
-        this.users = data['users'];
+        this.users = data['users']
+        this.pagecount = data.page_count + 1;
         console.log(this.users);
       }, (error) => {
 
@@ -35,10 +37,33 @@ export class UserComponent implements OnInit {
   }
 
   clickProfile(id: number) {
-    this.router.navigate(['/komenty'],  {queryParams: {id}});
+    this.router.navigate(['/koment'],  {queryParams: {id}});
   }
 
   ngOnInit() {
+    if (localStorage.getItem('token')) {
+      console.log(localStorage.getItem('token'));
+      AuthenticationService.token.access_token = (localStorage.getItem('token'));
+
+      this.router.navigate(['/user']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  clickPage(page: number) {
+    this.user.getPage(page).subscribe(
+      (data: UserModel) => {
+        this.users = data['users'];
+        this.pagecount = data.page_count + 1;
+        console.log(this.users);
+      }, (error) => {
+
+      }
+    );
+  }
+  get pageCount(): IterableIterator<number> {
+    return new Array(this.pagecount).keys();
   }
 
   clickMe() {

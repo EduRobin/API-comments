@@ -19,19 +19,10 @@ export class LoggedinComponent implements OnInit {
   }
 
   clickMe() {
-    this.userlogout.getLogout()
-      .subscribe(
-        (data: any) => {
-
-          AuthenticationService.token.access_token = '';
-
-
-
-        }, (error) => {
-
-        }
-      );
+    localStorage.clear();
   }
+
+
 
 
   ngOnInit() {

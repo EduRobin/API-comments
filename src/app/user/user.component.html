@@ -36,3 +36,8 @@
     </tbody>
   </table>
 </div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination pg-blue">
+    <li class="page-item" *ngFor="let page of pageCount"><a (click)="clickPage(page)" class="page-link">{{page + 1}}</a></li>
+  </ul>
+</nav>

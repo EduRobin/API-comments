@@ -27,6 +27,13 @@ export class LoginComponent implements OnInit {
     this.authentication.clickLogin(this.email, this.password).subscribe(
       (data: AuthenticationModel) => {
 
+        const emailStorage = this.email.valueOf();
+        const passwordStorage = this.password.valueOf();
+        const accesTokenStorage = AuthenticationService.token.access_token;
+
+        localStorage.setItem(emailStorage, passwordStorage);
+        localStorage.setItem('token', accesTokenStorage);
+
         this.authentication.setToken(data);
         console.log(data);
         this.router.navigate(['/loggedin']);
@@ -35,6 +42,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
 
 
   ngOnInit() {
